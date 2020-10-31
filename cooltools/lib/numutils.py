@@ -498,8 +498,9 @@ def get_eig(mat, n=3, mask_zero_rows=False, subtract_mean=False, divide_by_mean=
             mat /= mean
 
         if symmetric:
-            eigvals, eigvecs = scipy.sparse.linalg.eigsh(mat, n)
+            eigvals, eigvecs = scipy.sparse.linalg.eigsh(mat, n, which='LA')
         else:
+            print("SHIT")
             eigvals, eigvecs = scipy.sparse.linalg.eigs(mat, n)
         order = np.argsort(-np.abs(eigvals))
         eigvals = eigvals[order]
