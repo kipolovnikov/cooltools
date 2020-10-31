@@ -499,6 +499,7 @@ def get_eig(mat, n=3, mask_zero_rows=False, subtract_mean=False, divide_by_mean=
 
         if symmetric:
             eigvals, eigvecs = scipy.sparse.linalg.eigsh(mat, n, which='LA')
+            print("LA")
         else:
             print("SHIT")
             eigvals, eigvecs = scipy.sparse.linalg.eigs(mat, n)
